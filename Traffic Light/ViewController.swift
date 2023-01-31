@@ -17,19 +17,20 @@ class ViewController: UIViewController {
     let lightOff: CGFloat = 0.3
     let lightOn: CGFloat = 1
     
-    private var roundRadius :CGFloat {
-        redLight.frame.height / 2
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.layer.cornerRadius = 10
-        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        var roundRadius :CGFloat {
+            redLight.frame.height / 2
+        }
         redLight.layer.cornerRadius = roundRadius
         yellowLight.layer.cornerRadius = roundRadius
         greenLight.layer.cornerRadius = roundRadius
     }
-
+    
     @IBAction func buttonTapped() {
         startButton.setTitle("NEXT", for: .normal)
         
@@ -43,8 +44,6 @@ class ViewController: UIViewController {
             greenLight.alpha = lightOn
             yellowLight.alpha = lightOff
         }
-        
-        
     }
 }
 
